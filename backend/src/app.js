@@ -15,7 +15,6 @@ app.use(cors({
 }));
 
 app.use(express.json({ limit: '1mb' }));
-app.use('/api', require('./auth'));
 
 app.get('/api/health', async (req, res, next) => {
   try {
