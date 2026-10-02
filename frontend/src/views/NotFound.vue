@@ -1,0 +1,1 @@
+<template><section class="container section not-found"><p class="eyebrow">404 · PAGE NOT FOUND</p><h1>หน้านี้อาจย้ายไปแล้ว</h1><p class="muted">กลับไปเลือกห้องพัก หรือเริ่มต้นใหม่จากหน้าหลัก</p><div class="button-row"><RouterLink to="/" class="btn primary">กลับหน้าหลัก</RouterLink><RouterLink to="/rooms" class="btn outline">ดูห้องพัก</RouterLink></div></section></template>

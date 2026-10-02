@@ -1,0 +1,10 @@
+import { createApp } from 'vue';
+import '@fontsource/prompt/400.css';
+import '@fontsource/prompt/500.css';
+import '@fontsource/prompt/600.css';
+import '@fontsource/sarabun/400.css';
+import '@fontsource/sarabun/600.css';
+import './style.css';
+import App from './App.vue';
+import router from './router';
+createApp(App).use(router).mount('#app');

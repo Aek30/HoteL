@@ -1,0 +1,6 @@
+export const currency = value => Number(value || 0).toLocaleString('th-TH', { style: 'currency', currency: 'THB', maximumFractionDigits: 2 });
+export const dateText = value => value ? new Date(value.slice(0,10) + 'T12:00:00+07:00').toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+export const today = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Bangkok', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+export function nextDate(date, days = 1) { return new Date(Date.parse(date) + days * 86400000).toISOString().slice(0,10); }
+export const labels = { available:'พร้อมใช้งาน',occupied:'มีผู้เข้าพัก',cleaning:'กำลังทำความสะอาด',maintenance:'ซ่อมบำรุง',inactive:'ปิดใช้งาน',active:'ใช้งาน',pending:'รอตรวจสอบ',confirmed:'ยืนยันแล้ว',checked_in:'เข้าพักแล้ว',checked_out:'เช็กเอาต์แล้ว',cancelled:'ยกเลิก',expired:'หมดอายุ',no_show:'ไม่มาเข้าพัก',successful:'ชำระสำเร็จ',failed:'ไม่ผ่าน',refunded:'คืนเงินแล้ว',approved:'อนุมัติ',rejected:'ไม่อนุมัติ',cash:'เงินสด',bank_transfer:'โอนธนาคาร',promptpay:'พร้อมเพย์',national_id:'บัตรประชาชน',passport:'หนังสือเดินทาง' };
+export const label = value => labels[value] || value || '—';

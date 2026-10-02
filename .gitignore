@@ -6,3 +6,8 @@ dist/
 uploads/
 *.log
 .npm-cache/
+
+private-storage/
+
+backend/test/receipt-preview.pdf
+backend/receipt.pdf
