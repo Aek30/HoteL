@@ -11,3 +11,4 @@ private-storage/
 
 backend/test/receipt-preview.pdf
 backend/receipt.pdf
+tmp/

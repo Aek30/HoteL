@@ -7,7 +7,7 @@ async function submit(){busy.value=true;error.value='';success.value='';try{
  if(['register','reset-password'].includes(mode.value)&&form.password!==form.confirm)throw Error('รหัสผ่านยืนยันไม่ตรงกัน');
  if(mode.value==='login'){const user=await login({username:form.username.trim(),password:form.password});const redirect=String(route.query.redirect||'');notify('เข้าสู่ระบบสำเร็จ');router.push(user.role==='admin'?'/admin':(/^\/(?!\/)/.test(redirect)&&!redirect.startsWith('/admin')?redirect:'/my-bookings'));}
  else if(mode.value==='register'){await api('/auth/register',{method:'POST',body:{username:form.username.trim(),email:form.email,password:form.password,first_name:form.first_name,last_name:form.last_name,phone:form.phone}});notify('สมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ');router.push({path:'/login',query:route.query});}
- else if(mode.value==='forgot-password'){const r=await api('/auth/forgot-password',{method:'POST',body:{email:form.email}});success.value=r.data.message;}
+ else if(mode.value==='forgot-password'){const r=await api('/auth/forgot-password',{method:'POST',body:{email:form.email}});success.value=r.data.message;notify(r.data.message);}
  else {if(!route.query.token)throw Error('ลิงก์นี้ไม่มี token กรุณาขอลิงก์ใหม่');await api('/auth/reset-password',{method:'POST',body:{token:String(route.query.token),password:form.password}});notify('เปลี่ยนรหัสผ่านแล้ว กรุณาเข้าสู่ระบบ');router.push('/login');}
 }catch(e){error.value=e.details?.length?e.details.map(d=>d.message).join(' · '):e.message;}finally{busy.value=false;}}
 </script>

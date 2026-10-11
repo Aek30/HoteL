@@ -40,7 +40,7 @@ router.post('/forgot-password', async (req, res, next) => {
         console.error('Password reset email delivery failed:', error.code || 'MAIL_ERROR');
       }
     }
-    res.json({ data: { message: 'หากมีบัญชีที่ใช้งานได้ ระบบจะส่งลิงก์รีเซ็ตไปยังอีเมล' } });
+    res.json({ data: { message: 'ส่งลิงก์ตั้งรหัสผ่านไปยังอีเมลของคุณเรียบร้อยแล้ว กรุณาตรวจสอบในกล่องจดหมายหรือโฟลเดอร์จดหมายขยะ (Spam)' } });
   } catch (error) { next(error); }
 });
 router.post('/reset-password', async (req, res, next) => {
